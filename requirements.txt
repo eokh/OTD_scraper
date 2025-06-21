@@ -1,8 +1,7 @@
-# Unga Bunga Requirements for Fire & Wisdom
-# Requires: a pure heart, and thirst for knowledge
+flask
+requests
+requests_cache
 
-Flask==3.1.1
-requests==2.32.4
-requests_cache==1.2.1
-beautifulsoup4==4.12.3
+# For the spirit who codes:
+# A pure heart, and thirst for knowledge.
 

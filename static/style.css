@@ -1,92 +1,97 @@
 body {
   background-color: white;
-  color: black;
-  font-family: "Apple Garamond", "ITC Garamond", serif;
-  font-size: 12pt;
-  line-height: 1.6;
-  margin: 3rem auto;
-  max-width: 700px;
+  font-family: 'Apple Garamond', sans-serif;
   text-align: center;
-  padding: 0 1rem;
+  padding: 2em;
+  color: black;
 }
 
 h1 {
-  font-size: 16pt;
-  font-weight: bold;
-  margin-bottom: 2rem;
+  font-size: 3em;
+  margin-bottom: 0.2em;
 }
 
-ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0 auto;
-}
-
-li {
-  margin-bottom: 1rem;
+.subtitle {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  font-style: italic;
 }
 
 .fire-button {
-  font-family: "Apple Garamond", "ITC Garamond", serif;
-  font-size: 12pt;
-  padding: 10px 20px;
+  padding: 1em 2em;
+  margin: 2em auto;
+  font-size: 1em;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  background: linear-gradient(45deg, #ff4500, #ff6b35, #ff8e53);
+  border-radius: 8px;
+  background: linear-gradient(to right, #ff5500, #ffcc00);
   color: white;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 0 10px rgba(255, 69, 0, 0.6);
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .fire-button:hover {
-  opacity: 0.9;
+  transform: scale(1.05);
 }
 
-.campfire {
-  margin-top: 3rem;
+.fire {
   position: relative;
-  width: 60px;
-  height: 80px;
-  margin-left: auto;
-  margin-right: auto;
-  background: radial-gradient(circle at 50% 80%, #ff4500, #ff6b35, #ff8e53);
-  border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
-  animation: flicker 2s ease-in-out infinite alternate;
-  box-shadow: 0 0 20px rgba(255, 69, 0, 0.6);
+  margin: 3em auto;
+  width: 40px;
+  height: 60px;
 }
 
-.campfire::before {
-  content: '';
+.flame {
   position: absolute;
-  top: 15px;
-  left: 15px;
-  width: 30px;
-  height: 50px;
-  background: radial-gradient(circle at 50% 80%, #ff8e53, #ffad7a, #ffcc99);
-  border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
-  animation: flicker 1.8s ease-in-out infinite alternate-reverse;
-  box-shadow: 0 0 15px rgba(255, 142, 83, 0.5);
-}
-
-.campfire::after {
-  content: '';
-  position: absolute;
-  top: 25px;
-  left: 25px;
-  width: 15px;
+  bottom: 10px;
+  left: 50%;
+  width: 20px;
   height: 30px;
-  background: radial-gradient(circle at 50% 85%, #ffcc99, #ffe0b3, #fff8dc);
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  animation: flicker 1.5s ease-in-out infinite alternate;
-  opacity: 0.9;
+  background: orange;
+  border-radius: 50% 50% 0 0;
+  transform: translateX(-50%);
+  animation: flicker 1s infinite alternate;
+  opacity: 0.8;
+}
+
+.flame:nth-child(2) {
+  width: 15px;
+  height: 25px;
+  background: red;
+  bottom: 12px;
+  animation-delay: 0.3s;
+}
+
+.flame:nth-child(3) {
+  width: 10px;
+  height: 20px;
+  background: yellow;
+  bottom: 14px;
+  animation-delay: 0.6s;
+}
+
+.sticks {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 30px;
+  height: 10px;
+  background: #4b2e1f;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.sticks::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 10px;
+  background: #4b2e1f;
+  transform: rotate(-90deg);
+  top: 0;
+  left: 0;
 }
 
 @keyframes flicker {
-  0% { transform: scale(1) rotate(-1deg) skewX(1deg); filter: brightness(1) hue-rotate(0deg); }
-  25% { transform: scale(1.05) rotate(1deg) skewX(-0.5deg); filter: brightness(1.1) hue-rotate(5deg); }
-  50% { transform: scale(0.98) rotate(-0.5deg) skewX(0.8deg); filter: brightness(0.95) hue-rotate(-3deg); }
-  75% { transform: scale(1.08) rotate(0.8deg) skewX(-1deg); filter: brightness(1.15) hue-rotate(8deg); }
-  100% { transform: scale(1.02) rotate(-1.2deg) skewX(0.5deg); filter: brightness(1.05) hue-rotate(-2deg); }
+  0% { transform: translateX(-50%) scaleY(1); opacity: 0.7; }
+  100% { transform: translateX(-50%) scaleY(1.2); opacity: 1; }
 }
 

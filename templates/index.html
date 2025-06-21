@@ -1,22 +1,290 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>On This Day</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>On This Day - Wikipedia Scraper</title>
+  <style>
+    body {
+      font-family: 'Apple Garamond', 'Garamond', 'Times New Roman', serif;
+      font-size: 16px;
+      color: #1a1a1a;
+      background: linear-gradient(135deg, #ffffff 0%, #fff8dc 15%, #ffe0b3 30%, #ffffff 45%, #ffffff 100%);
+      margin: 0 auto;
+      padding: 40px 20px;
+      line-height: 1.6;
+      max-width: 800px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+
+```
+.container {
+  text-align: center;
+}
+
+h1 {
+  font-weight: 300;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 2.5em;
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  font-style: italic;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.content {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.fact {
+  margin: 10px 0;
+  padding: 5px 0;
+  text-align: center;
+}
+
+button {
+  font-family: 'Apple Garamond', 'Garamond', 'Times New Roman', serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #ff4500 0%, #ff6b35 25%, #ff8e53 50%, #ffad7a 75%, #ffcc99 100%);
+  border: 1px solid #ff6b35;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 20px 0;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 8px rgba(255, 69, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8e53 25%, #ffad7a 50%, #ffcc99 75%, #ffe0b3 100%);
+  box-shadow: 0 4px 12px rgba(255, 69, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background: linear-gradient(135deg, #ccc 0%, #ddd 25%, #eee 50%, #f0f0f0 75%, #f5f5f5 100%);
+  color: #999;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+  text-shadow: none;
+}
+
+.fire {
+  text-align: center;
+  margin-top: 40px;
+  position: relative;
+}
+
+.flame {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  position: relative;
+  background: radial-gradient(circle at 50% 80%, #ff4500, #ff6b35, #ff8e53, #ff6b35);
+  border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+  animation: flicker 2s ease-in-out infinite alternate;
+  box-shadow: 0 0 20px rgba(255, 69, 0, 0.6);
+}
+
+.flame::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 25px;
+  width: 30px;
+  height: 50px;
+  background: radial-gradient(circle at 50% 80%, #ff8e53, #ffad7a, #ffcc99);
+  border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+  animation: flicker 1.8s ease-in-out infinite alternate-reverse;
+  box-shadow: 0 0 15px rgba(255, 142, 83, 0.5);
+}
+
+.flame::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 35px;
+  width: 15px;
+  height: 30px;
+  background: radial-gradient(circle at 50% 85%, #ffcc99, #ffe0b3, #fff8dc);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: flicker 1.5s ease-in-out infinite alternate;
+  opacity: 0.9;
+}
+
+.sticks {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 8px;
+  background: linear-gradient(90deg, #654321, #8b4513, #654321);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.sticks::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 40px;
+  height: 6px;
+  background: linear-gradient(90deg, #8b4513, #a0522d, #8b4513);
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+@keyframes flicker {
+  0% { transform: scale(1) rotate(-1deg) skewX(1deg); filter: brightness(1) hue-rotate(0deg); }
+  25% { transform: scale(1.05) rotate(1deg) skewX(-0.5deg); filter: brightness(1.1) hue-rotate(5deg); }
+  50% { transform: scale(0.98) rotate(-0.5deg) skewX(0.8deg); filter: brightness(0.95) hue-rotate(-3deg); }
+  75% { transform: scale(1.08) rotate(0.8deg) skewX(-1deg); filter: brightness(1.15) hue-rotate(8deg); }
+  100% { transform: scale(1.02) rotate(-1.2deg) skewX(0.5deg); filter: brightness(1.05) hue-rotate(-2deg); }
+}
+```
+
+  </style>
 </head>
 <body>
-  <main>
-    <h1>On This Day – {{ today }}</h1>
-    <button onclick="location.reload()" class="fire-button">Fetch Wisdom</button>
-    <ul>
-      {% for event in events %}
-        <li>{{ event }}</li>
-      {% endfor %}
-    </ul>
-    <div class="campfire"></div>
-  </main>
+  <div class="container">
+    <h1>On This Day</h1>
+    <p class="subtitle">Seek knowledge; light the spark.</p>
+    <div id="facts">
+      <p class="fact">1633 – Galileo Galilei was tried before the Congregation for the Doctrine of the Faith for teaching that the Earth orbits around the Sun.</p>
+      <p class="fact">1788 – New Hampshire became the ninth U.S. state to ratify the United States Constitution, making it the law of the land.</p>
+      <p class="fact">1893 – The Ferris wheel, designed by George Ferris Jr., opened to the public at the World's Columbian Exposition in Chicago.</p>
+      <p class="fact">1945 – The Battle of Okinawa ended with the surrender of organized Japanese resistance.</p>
+      <p class="fact">1982 – The Falklands War ended with the surrender of Argentine forces in the Falkland Islands to British forces.</p>
+    </div>
+    <button onclick="fetchWisdom()" style="display: block; margin: 20px auto;">Fetch Wisdom</button>
+    <div class="fire">
+      <div class="flame"></div>
+      <div class="sticks"></div>
+    </div>
+  </div>
+
+  <script>
+    // Pool of historical events across different dates
+    const historicalFacts = [
+      // June facts
+      "1969 – Apollo 11 launches from Kennedy Space Center, beginning humanity's journey to the Moon.",
+      "1975 – The first blockbuster film 'Jaws' is released, revolutionizing Hollywood marketing.",
+      "1953 – Queen Elizabeth II is crowned at Westminster Abbey in a televised ceremony watched by millions.",
+      "1944 – D-Day: Allied forces land in Normandy, beginning the liberation of Western Europe.",
+      "1783 – The Montgolfier brothers demonstrate the first hot air balloon flight in France.",
+      
+      // Random historical dates
+      "1776 – The American Declaration of Independence is adopted by the Continental Congress.",
+      "1633 – Galileo Galilei is tried for teaching that the Earth orbits around the Sun.",
+      "1788 – New Hampshire becomes the ninth state to ratify the US Constitution.",
+      "1893 – The Ferris wheel opens to the public at the World's Columbian Exposition in Chicago.",
+      "1945 – The Battle of Okinawa ends with the surrender of organized Japanese resistance.",
+      "1982 – The Falklands War ends with Argentine surrender to British forces.",
+      "1969 – Neil Armstrong and Buzz Aldrin become the first humans to walk on the Moon.",
+      "1989 – The Berlin Wall falls, symbolizing the end of the Cold War division.",
+      "1963 – Martin Luther King Jr. delivers his 'I Have a Dream' speech in Washington, D.C.",
+      "1955 – Rosa Parks refuses to give up her bus seat, sparking the Montgomery Bus Boycott.",
+      "1492 – Christopher Columbus reaches the Americas, changing world history forever.",
+      "1865 – President Abraham Lincoln is assassinated by John Wilkes Booth at Ford's Theatre.",
+      "1912 – The RMS Titanic sinks on its maiden voyage after striking an iceberg.",
+      "1906 – The Great San Francisco Earthquake and Fire devastates the city.",
+      "1969 – The Woodstock music festival begins, defining a generation's counterculture movement.",
+      "1973 – The World Trade Center twin towers are officially dedicated in New York City.",
+      "1981 – IBM releases its first personal computer, revolutionizing home computing.",
+      "1969 – The first message is sent over ARPANET, precursor to the modern internet.",
+      "1928 – Alexander Fleming discovers penicillin, revolutionizing medicine and saving millions of lives.",
+      "1903 – The Wright brothers achieve the first powered flight at Kitty Hawk, North Carolina.",
+      "1957 – The Soviet Union launches Sputnik 1, beginning the Space Race.",
+      "1961 – Yuri Gagarin becomes the first human to journey into space aboard Vostok 1.",
+      "1969 – The first Earth Day is celebrated, launching the modern environmental movement.",
+      "1973 – The Watergate scandal leads to President Nixon's resignation.",
+      "1991 – The World Wide Web is made publicly available, transforming global communication."
+    ];
+
+    let lastShownFacts = [];
+
+    function getRandomFacts(count = 5) {
+      // Ensure we don't repeat the same facts
+      let availableFacts = historicalFacts.filter(fact => !lastShownFacts.includes(fact));
+      
+      // If we've shown most facts, reset the pool but keep current facts excluded
+      if (availableFacts.length < count) {
+        availableFacts = historicalFacts.filter(fact => !getCurrentFacts().includes(fact));
+      }
+      
+      // Shuffle and select random facts
+      const shuffled = availableFacts.sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+
+    function getCurrentFacts() {
+      const factElements = document.querySelectorAll('.fact');
+      return Array.from(factElements).map(el => el.textContent);
+    }
+
+    function fetchWisdom() {
+      const factsContainer = document.getElementById('facts');
+      const button = document.querySelector('button');
+      
+      // Disable button temporarily
+      button.disabled = true;
+      button.textContent = 'Gathering Wisdom...';
+      
+      // Get new random facts
+      const newFacts = getRandomFacts(5);
+      lastShownFacts = newFacts;
+      
+      // Add a brief delay for visual feedback
+      setTimeout(() => {
+        // Clear existing facts
+        factsContainer.innerHTML = '';
+        
+        // Add new facts with a slight stagger animation
+        newFacts.forEach((fact, index) => {
+          setTimeout(() => {
+            const factElement = document.createElement('p');
+            factElement.className = 'fact';
+            factElement.textContent = fact;
+            factElement.style.opacity = '0';
+            factElement.style.transform = 'translateY(10px)';
+            factElement.style.transition = 'all 0.3s ease';
+            
+            factsContainer.appendChild(factElement);
+            
+            // Trigger animation
+            setTimeout(() => {
+              factElement.style.opacity = '1';
+              factElement.style.transform = 'translateY(0)';
+            }, 10);
+          }, index * 100);
+        });
+        
+        // Re-enable button
+        button.disabled = false;
+        button.textContent = 'Fetch Wisdom';
+      }, 800);
+    }
+
+    // Auto-load on page start
+    window.addEventListener('load', () => {
+      setTimeout(fetchWisdom, 1000);
+    });
+  </script>
+
 </body>
 </html>
-
