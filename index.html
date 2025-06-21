@@ -10,716 +10,237 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Courier New', Courier, monospace !important;
     }
 
 ```
 body {
-  font-family: 'Courier New', Courier, 'Lucida Console', 'Monaco', monospace;
-  font-size: 16px;
   color: #1a1a1a;
-  margin: 0;
-  padding: 0;
   line-height: 1.7;
-  font-weight: 400;
   letter-spacing: 0.5px;
   overflow-x: hidden;
-  position: relative;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  background: linear-gradient(135deg, 
+    #ffffff 0%, #fff8f0 20%, #ffe4b3 40%, 
+    #ffdc99 60%, #ffc44d 80%, #4a90e2 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
-/* Parallax Background Layer */
-.parallax-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.parallax-bg {
-  position: absolute;
-  top: -20%;
-  left: -20%;
-  width: 140%;
-  height: 140%;
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(255, 69, 0, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 40% 70%, rgba(255, 142, 83, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 90% 80%, rgba(255, 173, 122, 0.06) 0%, transparent 50%),
-    linear-gradient(135deg, 
-      #ffffff 0%, 
-      #fff8f0 15%, 
-      #fff4e6 25%, 
-      #ffeccc 35%, 
-      #ffe4b3 45%, 
-      #ffdc99 55%, 
-      #ffd480 65%, 
-      #ffcc66 75%, 
-      #ffc44d 85%, 
-      #ffbc33 95%, 
-      #ffb81a 100%
-    );
-  animation: parallaxFloat 20s ease-in-out infinite alternate;
-}
-
-.parallax-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(255, 248, 240, 0.85) 25%,
-    rgba(255, 244, 230, 0.8) 50%,
-    rgba(255, 248, 240, 0.85) 75%,
-    rgba(255, 255, 255, 0.9) 100%
-  );
-  animation: overlayShift 15s ease-in-out infinite alternate;
-}
-
-@keyframes parallaxFloat {
-  0% { 
-    transform: translateY(0px) translateX(0px) scale(1);
-    filter: hue-rotate(0deg) brightness(1);
-  }
-  25% { 
-    transform: translateY(-10px) translateX(5px) scale(1.02);
-    filter: hue-rotate(5deg) brightness(1.05);
-  }
-  50% { 
-    transform: translateY(-5px) translateX(-8px) scale(1.01);
-    filter: hue-rotate(-3deg) brightness(0.98);
-  }
-  75% { 
-    transform: translateY(-15px) translateX(3px) scale(1.03);
-    filter: hue-rotate(8deg) brightness(1.08);
-  }
-  100% { 
-    transform: translateY(-8px) translateX(-5px) scale(1.01);
-    filter: hue-rotate(-2deg) brightness(1.02);
-  }
-}
-
-@keyframes overlayShift {
-  0% { opacity: 0.9; }
-  50% { opacity: 0.75; }
-  100% { opacity: 0.85; }
-}
-
-/* Floating particles */
-.particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.particle {
-  position: absolute;
-  background: radial-gradient(circle, rgba(255, 107, 53, 0.6), rgba(255, 173, 122, 0.3));
-  border-radius: 50%;
-  animation: float 8s infinite ease-in-out;
-}
-
-.particle:nth-child(1) { width: 4px; height: 4px; top: 20%; left: 20%; animation-delay: 0s; }
-.particle:nth-child(2) { width: 6px; height: 6px; top: 60%; left: 80%; animation-delay: 1s; }
-.particle:nth-child(3) { width: 3px; height: 3px; top: 80%; left: 10%; animation-delay: 2s; }
-.particle:nth-child(4) { width: 5px; height: 5px; top: 30%; left: 70%; animation-delay: 3s; }
-.particle:nth-child(5) { width: 4px; height: 4px; top: 70%; left: 30%; animation-delay: 4s; }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.4; }
-  25% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
-  50% { transform: translateY(-10px) translateX(-15px); opacity: 0.6; }
-  75% { transform: translateY(-30px) translateX(5px); opacity: 0.9; }
-}
-
-/* Main content */
 .container {
-  position: relative;
-  z-index: 1;
-  text-align: center;
   max-width: 800px;
   margin: 0 auto;
   padding: 60px 20px;
-  min-height: 100vh;
-  backdrop-filter: blur(0.5px);
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
-  font-weight: 700;
-  margin-bottom: 15px;
-  text-align: center;
   font-size: 3em;
+  font-weight: 700;
   letter-spacing: 2px;
-  color: #2c2c2c;
-  text-shadow: 2px 2px 4px rgba(255, 107, 53, 0.1);
-  background: linear-gradient(135deg, #ff4500, #ff6b35, #ff8e53);
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #ff4500, #ff6b35, #8e44ad);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: titleGlow 3s ease-in-out infinite alternate;
-  font-family: 'Courier New', Courier, 'Lucida Console', monospace;
+  animation: glow 3s ease-in-out infinite alternate;
 }
 
-@keyframes titleGlow {
+@keyframes glow {
   0% { filter: drop-shadow(0 0 5px rgba(255, 69, 0, 0.3)); }
-  100% { filter: drop-shadow(0 0 15px rgba(255, 107, 53, 0.6)); }
+  100% { filter: drop-shadow(0 0 15px rgba(142, 68, 173, 0.6)); }
 }
 
 .subtitle {
   font-style: italic;
-  margin-bottom: 20px;
-  text-align: center;
+  margin-bottom: 30px;
   font-size: 1.1em;
   color: #555;
-  text-shadow: 1px 1px 2px rgba(255, 173, 122, 0.3);
-  font-weight: 400;
   letter-spacing: 1px;
-  font-family: 'Courier New', Courier, 'Lucida Console', monospace;
-}
-
-/* Cave Painting Animation */
-.cave-painting {
-  width: 200px;
-  height: 80px;
-  margin: 20px auto 40px;
-  position: relative;
-  background: linear-gradient(135deg, 
-    rgba(139, 69, 19, 0.1) 0%,
-    rgba(160, 82, 45, 0.15) 50%,
-    rgba(101, 67, 33, 0.1) 100%
-  );
-  border-radius: 20px;
-  padding: 15px;
-  overflow: hidden;
-}
-
-.cave-painting::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(160, 82, 45, 0.08) 0%, transparent 35%);
-  border-radius: 20px;
-  animation: caveTexture 8s ease-in-out infinite alternate;
-}
-
-@keyframes caveTexture {
-  0% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.02); }
-  100% { opacity: 0.4; transform: scale(1.01); }
-}
-
-/* Cave painting figures */
-.cave-figure {
-  position: absolute;
-  background: rgba(139, 69, 19, 0.8);
-  border-radius: 50%;
-  animation: cavePaint 6s ease-in-out infinite;
-}
-
-/* Human figure */
-.human {
-  width: 8px;
-  height: 20px;
-  top: 25px;
-  left: 30px;
-  border-radius: 20% 20% 50% 50%;
-  animation-delay: 0s;
-}
-
-.human::before {
-  content: '';
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: rgba(139, 69, 19, 0.9);
-  border-radius: 50%;
-  top: -8px;
-  left: 1px;
-  animation: cavePaint 6s ease-in-out infinite;
-  animation-delay: 0.5s;
-}
-
-.human::after {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 2px;
-  background: rgba(139, 69, 19, 0.7);
-  top: 8px;
-  left: -2px;
-  border-radius: 2px;
-  animation: cavePaint 6s ease-in-out infinite;
-  animation-delay: 1s;
-}
-
-/* Animal (mammoth-like) */
-.animal {
-  width: 25px;
-  height: 15px;
-  top: 35px;
-  left: 60px;
-  border-radius: 50% 20% 20% 50%;
-  animation-delay: 1.5s;
-}
-
-.animal::before {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: rgba(139, 69, 19, 0.8);
-  border-radius: 50%;
-  top: -6px;
-  left: 18px;
-  animation: cavePaint 6s ease-in-out infinite;
-  animation-delay: 2s;
-}
-
-.animal::after {
-  content: '';
-  position: absolute;
-  width: 3px;
-  height: 8px;
-  background: rgba(139, 69, 19, 0.6);
-  top: 15px;
-  left: 5px;
-  border-radius: 2px;
-  animation: cavePaint 6s ease-in-out infinite;
-  animation-delay: 2.5s;
-  box-shadow: 6px 0 0 rgba(139, 69, 19, 0.6), 12px 0 0 rgba(139, 69, 19, 0.6), 18px 0 0 rgba(139, 69, 19, 0.6);
-}
-
-/* Sun symbol */
-.sun {
-  width: 12px;
-  height: 12px;
-  top: 15px;
-  left: 120px;
-  border-radius: 50%;
-  background: rgba(139, 69, 19, 0.9);
-  animation-delay: 3s;
-}
-
-.sun::before {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: 
-    linear-gradient(0deg, transparent 45%, rgba(139, 69, 19, 0.4) 47%, rgba(139, 69, 19, 0.4) 53%, transparent 55%),
-    linear-gradient(45deg, transparent 45%, rgba(139, 69, 19, 0.4) 47%, rgba(139, 69, 19, 0.4) 53%, transparent 55%),
-    linear-gradient(90deg, transparent 45%, rgba(139, 69, 19, 0.4) 47%, rgba(139, 69, 19, 0.4) 53%, transparent 55%),
-    linear-gradient(135deg, transparent 45%, rgba(139, 69, 19, 0.4) 47%, rgba(139, 69, 19, 0.4) 53%, transparent 55%);
-  top: -4px;
-  left: -4px;
-  animation: sunRays 4s ease-in-out infinite;
-}
-
-@keyframes sunRays {
-  0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.6; }
-  50% { transform: rotate(45deg) scale(1.1); opacity: 0.9; }
-}
-
-/* Hand prints */
-.handprint {
-  width: 8px;
-  height: 10px;
-  background: rgba(139, 69, 19, 0.6);
-  border-radius: 40% 40% 60% 60%;
-  animation-delay: 4s;
-}
-
-.handprint:nth-of-type(6) {
-  top: 20px;
-  left: 150px;
-}
-
-.handprint:nth-of-type(7) {
-  top: 40px;
-  left: 170px;
-  transform: rotate(-20deg);
-  animation-delay: 4.5s;
-}
-
-.handprint::before {
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: 6px;
-  background: rgba(139, 69, 19, 0.5);
-  top: -2px;
-  left: 1px;
-  border-radius: 2px;
-  box-shadow: 2px 0 0 rgba(139, 69, 19, 0.5), 4px 0 0 rgba(139, 69, 19, 0.5), 6px 1px 0 rgba(139, 69, 19, 0.4);
-}
-
-@keyframes cavePaint {
-  0% { 
-    opacity: 0.4; 
-    transform: scale(0.95) translateY(2px); 
-    filter: blur(0.5px);
-  }
-  25% { 
-    opacity: 0.8; 
-    transform: scale(1) translateY(0px); 
-    filter: blur(0px);
-  }
-  50% { 
-    opacity: 0.9; 
-    transform: scale(1.02) translateY(-1px); 
-    filter: blur(0px);
-  }
-  75% { 
-    opacity: 0.7; 
-    transform: scale(0.98) translateY(1px); 
-    filter: blur(0.3px);
-  }
-  100% { 
-    opacity: 0.6; 
-    transform: scale(1.01) translateY(0px); 
-    filter: blur(0.2px);
-  }
-}
-
-/* Flickering cave light effect */
-@keyframes caveFlicker {
-  0%, 100% { 
-    box-shadow: inset 0 0 20px rgba(255, 140, 0, 0.1);
-    filter: brightness(1);
-  }
-  25% { 
-    box-shadow: inset 0 0 25px rgba(255, 140, 0, 0.15);
-    filter: brightness(1.05);
-  }
-  50% { 
-    box-shadow: inset 0 0 15px rgba(255, 140, 0, 0.08);
-    filter: brightness(0.98);
-  }
-  75% { 
-    box-shadow: inset 0 0 30px rgba(255, 140, 0, 0.18);
-    filter: brightness(1.08);
-  }
-}
-
-.cave-painting {
-  animation: caveFlicker 4s ease-in-out infinite;
-}
-
-#facts {
-  margin: 40px 0;
-  min-height: 400px;
-}
-
-.fact {
-  margin: 20px 0;
-  padding: 20px;
-  text-align: center;
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(255, 248, 240, 0.9) 25%,
-    rgba(255, 244, 230, 0.85) 50%,
-    rgba(255, 248, 240, 0.9) 75%,
-    rgba(255, 255, 255, 0.95) 100%
-  );
-  border: 1px solid rgba(255, 107, 53, 0.2);
-  border-left: 5px solid;
-  border-left-color: linear-gradient(45deg, #ff4500, #ff6b35, #ff8e53);
-  border-image: linear-gradient(45deg, #ff4500, #ff6b35, #ff8e53) 1;
-  border-radius: 0 12px 12px 0;
-  transition: all 0.4s ease;
-  box-shadow: 
-    0 4px 15px rgba(255, 107, 53, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  line-height: 1.8;
-  font-family: 'Courier New', Courier, 'Lucida Console', monospace;
-}
-
-.fact:hover {
-  background: linear-gradient(135deg, 
-    rgba(255, 248, 240, 0.98) 0%,
-    rgba(255, 244, 230, 0.95) 25%,
-    rgba(255, 236, 204, 0.9) 50%,
-    rgba(255, 244, 230, 0.95) 75%,
-    rgba(255, 248, 240, 0.98) 100%
-  );
-  transform: translateX(8px) translateY(-2px);
-  box-shadow: 
-    0 8px 25px rgba(255, 107, 53, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 button {
-  font-family: 'Courier New', Courier, 'Lucida Console', monospace;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 1px;
   padding: 15px 35px;
-  background: linear-gradient(135deg, 
-    #ff4500 0%, 
-    #ff5722 10%, 
-    #ff6b35 20%, 
-    #ff7043 30%, 
-    #ff8e53 40%, 
-    #ffa270 50%, 
-    #ffad7a 60%, 
-    #ffb74d 70%, 
-    #ffcc99 80%, 
-    #ffd699 90%, 
-    #ffe0b3 100%
-  );
+  background: linear-gradient(135deg, #ff4500, #ff6b35, #8e44ad, #4a90e2);
   border: 2px solid rgba(255, 107, 53, 0.3);
   border-radius: 50px;
   cursor: pointer;
   margin: 30px auto;
   color: white;
   text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-  box-shadow: 
-    0 6px 20px rgba(255, 69, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(255, 69, 0, 0.3);
   transition: all 0.3s ease;
   display: block;
-  position: relative;
-  overflow: hidden;
-}
-
-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, 
-    transparent, 
-    rgba(255, 255, 255, 0.3), 
-    transparent
-  );
-  transition: left 0.5s ease;
-}
-
-button:hover::before {
-  left: 100%;
 }
 
 button:hover {
-  background: linear-gradient(135deg, 
-    #ff6b35 0%, 
-    #ff7043 10%, 
-    #ff8e53 20%, 
-    #ffa270 30%, 
-    #ffad7a 40%, 
-    #ffb74d 50%, 
-    #ffcc99 60%, 
-    #ffd699 70%, 
-    #ffe0b3 80%, 
-    #fff8dc 90%, 
-    #ffffff 100%
-  );
-  box-shadow: 
-    0 10px 30px rgba(255, 69, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #ff6b35, #8e44ad, #4a90e2, #ffffff);
   transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(142, 68, 173, 0.4);
 }
 
 button:disabled {
-  background: linear-gradient(135deg, #ccc 0%, #ddd 25%, #eee 50%, #f0f0f0 75%, #f5f5f5 100%);
+  background: #ccc;
   color: #999;
   cursor: not-allowed;
   box-shadow: none;
   transform: none;
-  text-shadow: none;
+}
+
+#facts {
+  margin: 40px 0;
+  min-height: 300px;
+}
+
+.fact {
+  margin: 20px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-left: 5px solid #ff6b35;
+  border-radius: 0 12px 12px 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.1);
+  letter-spacing: 0.5px;
+  line-height: 1.8;
+}
+
+.fact:hover {
+  transform: translateX(8px) translateY(-2px);
+  box-shadow: 0 8px 25px rgba(142, 68, 173, 0.2);
+  border-left-color: #8e44ad;
 }
 
 .fire {
-  text-align: center;
   margin-top: 60px;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  height: 120px;
 }
 
 .flame {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-  position: relative;
+  width: 80px;
+  height: 80px;
   background: radial-gradient(circle at 50% 80%, 
-    #ff4500 0%, 
-    #ff6b35 20%, 
-    #ff8e53 40%, 
-    #ffad7a 60%, 
-    #ff6b35 80%, 
-    #ff4500 100%
-  );
+    #ff4500 0%, #ff6b35 30%, #ffad7a 60%, #8e44ad 90%);
   border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+  position: relative;
   animation: flicker 2s ease-in-out infinite alternate;
-  box-shadow: 
-    0 0 30px rgba(255, 69, 0, 0.8),
-    0 0 60px rgba(255, 107, 53, 0.4),
-    0 0 90px rgba(255, 142, 83, 0.2);
+  box-shadow: 0 0 40px rgba(255, 69, 0, 0.8), 0 0 80px rgba(142, 68, 173, 0.3);
 }
 
 .flame::before {
   content: '';
   position: absolute;
-  top: 18px;
-  left: 30px;
+  top: 15px;
+  left: 20px;
   width: 40px;
-  height: 65px;
+  height: 50px;
   background: radial-gradient(circle at 50% 80%, 
-    #ff8e53 0%, 
-    #ffad7a 30%, 
-    #ffcc99 60%, 
-    #ffe0b3 90%
-  );
+    #ff8e53 0%, #ffcc99 50%, #4a90e2 90%);
   border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
   animation: flicker 1.8s ease-in-out infinite alternate-reverse;
-  box-shadow: 0 0 25px rgba(255, 142, 83, 0.6);
 }
 
 .flame::after {
   content: '';
   position: absolute;
-  top: 32px;
-  left: 42px;
-  width: 18px;
-  height: 38px;
+  top: 25px;
+  left: 30px;
+  width: 20px;
+  height: 30px;
   background: radial-gradient(circle at 50% 85%, 
-    #ffcc99 0%, 
-    #ffe0b3 40%, 
-    #fff8dc 80%, 
-    #ffffff 100%
-  );
+    #ffcc99 0%, #ffe0b3 60%, #ffffff 100%);
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
   animation: flicker 1.5s ease-in-out infinite alternate;
-  opacity: 0.95;
 }
 
-.sticks {
+.logs {
   position: absolute;
-  bottom: -12px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 12px;
-  background: linear-gradient(90deg, 
-    #654321 0%, 
-    #8b4513 25%, 
-    #a0522d 50%, 
-    #8b4513 75%, 
-    #654321 100%
-  );
-  border-radius: 6px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+  width: 100px;
+  height: 8px;
+  background: linear-gradient(90deg, #654321, #8b4513, #654321);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
-.sticks::after {
+.logs::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -3px;
   left: 50%;
   transform: translateX(-50%) rotate(45deg);
-  width: 50px;
-  height: 8px;
-  background: linear-gradient(90deg, 
-    #8b4513 0%, 
-    #a0522d 30%, 
-    #cd853f 50%, 
-    #a0522d 70%, 
-    #8b4513 100%
-  );
-  border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  width: 60px;
+  height: 6px;
+  background: linear-gradient(90deg, #8b4513, #a0522d, #8b4513);
+  border-radius: 3px;
 }
 
 @keyframes flicker {
   0% { 
-    transform: scale(1) rotate(-1deg) skewX(1deg); 
-    filter: brightness(1) hue-rotate(0deg) saturate(1);
-  }
-  25% { 
-    transform: scale(1.05) rotate(1deg) skewX(-0.5deg); 
-    filter: brightness(1.1) hue-rotate(5deg) saturate(1.1);
+    transform: scale(1) rotate(-2deg); 
+    filter: brightness(1) hue-rotate(0deg);
   }
   50% { 
-    transform: scale(0.98) rotate(-0.5deg) skewX(0.8deg); 
-    filter: brightness(0.95) hue-rotate(-3deg) saturate(0.9);
-  }
-  75% { 
-    transform: scale(1.08) rotate(0.8deg) skewX(-1deg); 
-    filter: brightness(1.15) hue-rotate(8deg) saturate(1.2);
+    transform: scale(1.1) rotate(2deg); 
+    filter: brightness(1.2) hue-rotate(10deg);
   }
   100% { 
-    transform: scale(1.02) rotate(-1.2deg) skewX(0.5deg); 
-    filter: brightness(1.05) hue-rotate(-2deg) saturate(1.05);
+    transform: scale(0.95) rotate(-1deg); 
+    filter: brightness(0.9) hue-rotate(-5deg);
   }
 }
 
-/* Scroll-triggered parallax effect */
-@media (prefers-reduced-motion: no-preference) {
-  .parallax-bg {
-    transform: translateZ(0);
-    will-change: transform;
-  }
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
 }
 
-/* Responsive design */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.8), rgba(142, 68, 173, 0.4));
+  border-radius: 50%;
+  animation: drift 10s infinite linear;
+}
+
+.particle:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+.particle:nth-child(2) { top: 30%; left: 80%; animation-delay: 2s; }
+.particle:nth-child(3) { top: 70%; left: 10%; animation-delay: 4s; }
+.particle:nth-child(4) { top: 50%; left: 90%; animation-delay: 6s; }
+
+@keyframes drift {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.3; }
+  50% { transform: translateY(-20px) translateX(15px) scale(1.2); opacity: 0.8; }
+  100% { transform: translateY(-40px) translateX(-10px) scale(0.8); opacity: 0.2; }
+}
+
 @media (max-width: 768px) {
-  .container {
-    padding: 40px 15px;
-  }
-  
-  h1 {
-    font-size: 2.2em;
-  }
-  
-  .fact {
-    padding: 15px;
-    margin: 15px 0;
-  }
-  
-  .flame {
-    width: 80px;
-    height: 80px;
-  }
-  
-  button {
-    font-size: 16px;
-    padding: 12px 28px;
-  }
+  .container { padding: 40px 15px; }
+  h1 { font-size: 2.2em; }
+  .flame { width: 60px; height: 60px; }
+  .fact { padding: 15px; margin: 15px 0; }
 }
 ```
 
   </style>
 </head>
 <body>
-  <div class="parallax-container">
-    <div class="parallax-bg"></div>
-    <div class="parallax-overlay"></div>
-  </div>
-
   <div class="particles">
-    <div class="particle"></div>
     <div class="particle"></div>
     <div class="particle"></div>
     <div class="particle"></div>
@@ -732,13 +253,7 @@ button:disabled {
     <span style="font-size: 0.9em; opacity: 0.8; font-style: normal;">This tool find old stories from many moons ago. Click shiny button, get new cave tales from long-long time past.</span></p>
 
 ```
-<div class="cave-painting">
-  <div class="cave-figure human"></div>
-  <div class="cave-figure animal"></div>
-  <div class="cave-figure sun"></div>
-  <div class="cave-figure handprint"></div>
-  <div class="cave-figure handprint"></div>
-</div>
+<button onclick="fetchWisdom()">Fetch Wisdom</button>
 
 <div id="facts">
   <p class="fact">1633 – Galileo Galilei was tried before the Congregation for the Doctrine of the Faith for teaching that the Earth orbits around the Sun.</p>
@@ -748,18 +263,16 @@ button:disabled {
   <p class="fact">1982 – The Falklands War ended with the surrender of Argentine forces in the Falkland Islands to British forces.</p>
 </div>
 
-<button onclick="fetchWisdom()">Fetch Wisdom</button>
-
 <div class="fire">
   <div class="flame"></div>
-  <div class="sticks"></div>
+  <div class="logs"></div>
 </div>
 ```
 
   </div>
 
   <script>
-    // Enhanced historical facts with parallax integration
+    // Unga bunga make magic stories appear on screen rectangle
     const historicalFacts = [
       "1969 – Apollo 11 launches from Kennedy Space Center, beginning humanity's journey to the Moon.",
       "1975 – The first blockbuster film 'Jaws' is released, revolutionizing Hollywood marketing.",
@@ -795,38 +308,23 @@ button:disabled {
 
     let lastShownFacts = [];
 
-    // Parallax scroll effect
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const parallaxBg = document.querySelector('.parallax-bg');
-      const parallaxOverlay = document.querySelector('.parallax-overlay');
-      
-      if (parallaxBg) {
-        parallaxBg.style.transform = `translateY(${scrolled * 0.5}px) scale(1.1)`;
-      }
-      if (parallaxOverlay) {
-        parallaxOverlay.style.transform = `translateY(${scrolled * 0.3}px)`;
-      }
-    });
-
+    // Get fresh stories without repeating recent ones
     function getRandomFacts(count = 5) {
-      let availableFacts = historicalFacts.filter(fact => !lastShownFacts.includes(fact));
-      
-      if (availableFacts.length < count) {
-        availableFacts = historicalFacts.filter(fact => !getCurrentFacts().includes(fact));
+      let available = historicalFacts.filter(fact => !lastShownFacts.includes(fact));
+      if (available.length < count) {
+        available = historicalFacts.filter(fact => !getCurrentFacts().includes(fact));
       }
-      
-      const shuffled = availableFacts.sort(() => 0.5 - Math.random());
-      return shuffled.slice(0, count);
+      return available.sort(() => 0.5 - Math.random()).slice(0, count);
     }
 
+    // Check what stories currently showing on cave wall
     function getCurrentFacts() {
-      const factElements = document.querySelectorAll('.fact');
-      return Array.from(factElements).map(el => el.textContent);
+      return Array.from(document.querySelectorAll('.fact')).map(el => el.textContent);
     }
 
+    // Main wisdom gathering ceremony
     function fetchWisdom() {
-      const factsContainer = document.getElementById('facts');
+      const container = document.getElementById('facts');
       const button = document.querySelector('button');
       
       button.disabled = true;
@@ -836,24 +334,23 @@ button:disabled {
       lastShownFacts = newFacts;
       
       setTimeout(() => {
-        factsContainer.innerHTML = '';
-        
-        newFacts.forEach((fact, index) => {
+        container.innerHTML = '';
+        newFacts.forEach((fact, i) => {
           setTimeout(() => {
-            const factElement = document.createElement('p');
-            factElement.className = 'fact';
-            factElement.textContent = fact;
-            factElement.style.opacity = '0';
-            factElement.style.transform = 'translateY(20px)';
-            factElement.style.transition = 'all 0.4s ease';
+            const factEl = document.createElement('p');
+            factEl.className = 'fact';
+            factEl.textContent = fact;
+            factEl.style.opacity = '0';
+            factEl.style.transform = 'translateY(20px)';
+            factEl.style.transition = 'all 0.4s ease';
             
-            factsContainer.appendChild(factElement);
+            container.appendChild(factEl);
             
             setTimeout(() => {
-              factElement.style.opacity = '1';
-              factElement.style.transform = 'translateY(0)';
+              factEl.style.opacity = '1';
+              factEl.style.transform = 'translateY(0)';
             }, 10);
-          }, index * 150);
+          }, i * 150);
         });
         
         button.disabled = false;
@@ -861,10 +358,8 @@ button:disabled {
       }, 1000);
     }
 
-    // Auto-load on page start
-    window.addEventListener('load', () => {
-      setTimeout(fetchWisdom, 1500);
-    });
+    // Auto-start when cave drawing loads
+    window.addEventListener('load', () => setTimeout(fetchWisdom, 1500));
   </script>
 
 </body>
