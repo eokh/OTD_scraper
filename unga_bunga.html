@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>On This Day – Wikipedia Scraper</title>
+  <style>
+    body {
+      font-family: "Apple Garamond ITC", Garamond, serif;
+      font-size: 12pt;
+      color: black;
+      background: white;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .container,
+    .content,
+    .events-list,
+    .loading,
+    .error,
+    .success {
+      text-align: center;
+    }
+
+    .content {
+      margin-bottom: 40px;
+    }
+
+    .events-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .events-list li {
+      margin: 10px 0;
+      padding: 5px 0;
+    }
+
+    .error {
+      color: #d32f2f;
+      margin: 40px 0;
+    }
+
+    .success {
+      color: #2e7d32;
+      margin: 20px 0;
+    }
+
+    button {
+      font-family: "Apple Garamond ITC", Garamond, serif;
+      font-size: 12pt;
+      padding: 10px 20px;
+      margin: 20px 0;
+      color: black;
+      background: linear-gradient(90deg, #ff4500, #ff6b35, #ff8e53, #ffad7a, #ffcc99, #ffe0b3);
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: filter 0.2s ease;
+    }
+
+    button:hover {
+      filter: brightness(1.1);
+    }
+
+    button:disabled {
+      background-color: #f9f9f9;
+      color: #999;
+      cursor: not-allowed;
+    }
+
+    .campfire {
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .campfire img {
+      width: 60px;
+      height: 60px;
+    }
+
+    .campfire-animation {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto;
+      position: relative;
+      background: radial-gradient(circle at 50% 80%, #ff4500, #ff6b35, #ff8e53, #ff6b35);
+      border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+      animation: flicker 2s ease-in-out infinite alternate;
+      box-shadow: 0 0 20px rgba(255, 69, 0, 0.6);
+    }
+
+    .campfire-animation::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 25px;
+      width: 30px;
+      height: 50px;
+      background: radial-gradient(circle at 50% 80%, #ff8e53, #ffad7a, #ffcc99);
+      border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+      animation: flicker 1.8s ease-in-out infinite alternate-reverse;
+      box-shadow: 0 0 15px rgba(255, 142, 83, 0.5);
+    }
+
+    .campfire-animation::after {
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: 35px;
+      width: 15px;
+      height: 30px;
+      background: radial-gradient(circle at 50% 85%, #ffcc99, #ffe0b3, #fff8dc);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: flicker 1.5s ease-in-out infinite alternate;
+      opacity: 0.9;
+    }
+
+    .campfire::before {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 8px;
+      background: linear-gradient(90deg, #654321, #8b4513, #654321);
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .campfire::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 40px;
+      height: 6px;
+      background: linear-gradient(90deg, #8b4513, #a0522d, #8b4513);
+      border-radius: 3px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes flicker {
+      0% { transform: scale(1) rotate(-1deg) skewX(1deg); filter: brightness(1) hue-rotate(0deg); }
+      25% { transform: scale(1.05) rotate(1deg) skewX(-0.5deg); filter: brightness(1.1) hue-rotate(5deg); }
+      50% { transform: scale(0.98) rotate(-0.5deg) skewX(0.8deg); filter: brightness(0.95) hue-rotate(-3deg); }
+      75% { transform: scale(1.08) rotate(0.8deg) skewX(-1deg); filter: brightness(1.15) hue-rotate(8deg); }
+      100% { transform: scale(1.02) rotate(-1.2deg) skewX(0.5deg); filter: brightness(1.05) hue-rotate(-2deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>On This Day</h1>
+
+    <div class="content">
+      <button onclick="fetchWikipediaEvents()" id="fetchBtn">Fetch Wisdom</button>
+
+      <div id="loading" class="loading" style="display: none;">
+        <p>Unga bunga entering cave to fetch story stones...</p>
+      </div>
+
+      <div id="error" class="error" style="display: none;"></div>
+
+      <div id="results" class="content" style="display: none;">
+        <div id="date-header"></div>
+        <ul id="events-list" class="events-list"></ul>
+        <div id="success-message" class="success" style="display: none;"></div>
+      </div>
+    </div>
+
+    <div class="campfire">
+      <div class="campfire-animation"></div>
+    </div>
+  </div>
+
+  <script>
+    async function fetchWikipediaEvents() {
+      const fetchBtn = document.getElementById("fetchBtn");
+      const loading = document.getElementById("loading");
+      const error = document.getElementById("error");
+      const results = document.getElementById("results");
+      const dateHeader = document.getElementById("date-header");
+      const eventsList = document.getElementById("events-list");
+      const successMessage = document.getElementById("success-message");
+
+      fetchBtn.disabled = true;
+      loading.style.display = "block";
+      error.style.display = "none";
+      results.style.display = "none";
+
+      try {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        const today = new Date();
+        const dateString = today.toLocaleDateString("en-US", { month: "long", day: "numeric" });
+
+        const mockEvents = [
+          "1633 – Galileo Galilei was tried before the Congregation for the Doctrine of the Faith for teaching that the Earth orbits around the Sun.",
+          "1788 – New Hampshire became the ninth U.S. state to ratify the United States Constitution, making it the law of the land.",
+          "1893 – The Ferris wheel, designed by George Ferris Jr., opened to the public at the World's Columbian Exposition in Chicago.",
+          "1945 – The Battle of Okinawa ended with the surrender of organized Japanese resistance.",
+          "1982 – The Falklands War ended with the surrender of Argentine forces in the Falkland Islands to British forces."
+        ];
+
+        loading.style.display = "none";
+        results.style.display = "block";
+
+        dateHeader.innerHTML = `<h2>On this day – ${dateString}:</h2>`;
+        eventsList.innerHTML = "";
+        mockEvents.forEach(event => {
+          const li = document.createElement("li");
+          li.textContent = event;
+          eventsList.appendChild(li);
+        });
+
+        successMessage.style.display = "block";
+        successMessage.textContent = `Unga bunga carved ${mockEvents.length} stories on stone: on_this_day_${today.toISOString().split("T")[0]}.txt`;
+
+      } catch (err) {
+        loading.style.display = "none";
+        error.style.display = "block";
+        error.textContent = "Cave spirits block path: " + err.message + ". Unga bunga frustrated.";
+      } finally {
+        fetchBtn.disabled = false;
+      }
+    }
+
+    window.addEventListener("load", () => {
+      setTimeout(fetchWikipediaEvents, 1000);
+    });
+  </script>
+</body>
+</html>
