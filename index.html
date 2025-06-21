@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On This Day - Wikipedia Scraper</title>
+    <style>
+        body {
+            font-family: 'Apple Garamond ITC', 'Garamond', serif;
+            font-size: 12pt;
+            color: black;
+            background-color: white;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            text-align: center;
+        }
+        
+        h1 {
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .content {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .events-list {
+            text-align: center;
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .events-list li {
+            margin: 10px 0;
+            padding: 5px 0;
+        }
+        
+        .loading {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .error {
+            color: #d32f2f;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .success {
+            color: #2e7d32;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        button {
+            font-family: 'Apple Garamond ITC', 'Garamond', serif;
+            font-size: 12pt;
+            padding: 10px 20px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        
+        button:hover {
+            background-color: #e0e0e0;
+        }
+        
+        button:disabled {
+            background-color: #f9f9f9;
+            color: #999;
+            cursor: not-allowed;
+        }
+        
+        .campfire {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .campfire img {
+            width: 50px;
+            height: 50px;
+        }
+        
+        /* Simple animated campfire using CSS */
+        .campfire-animation {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+            position: relative;
+            background: linear-gradient(45deg, #ff6b35, #ff8e53, #ff6b35);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flicker 1.5s ease-in-out infinite alternate;
+        }
+        
+        .campfire-animation::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            width: 20px;
+            height: 30px;
+            background: linear-gradient(45deg, #ff8e53, #ffad7a);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flicker 1.2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0% { transform: scale(1) rotate(-2deg); }
+            100% { transform: scale(1.1) rotate(2deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>On This Day</h1>
+        
+        <div class="content">
+            <button onclick="fetchWikipediaEvents()" id="fetchBtn">Fetch Today's Events</button>
+            
+            <div id="loading" class="loading" style="display: none;">
+                <p>Unga bunga entering cave to fetch story stones...</p>
+            </div>
+            
+            <div id="error" class="error" style="display: none;"></div>
+            
+            <div id="results" class="content" style="display: none;">
+                <div id="date-header"></div>
+                <ul id="events-list" class="events-list"></ul>
+                <div id="success-message" class="success" style="display: none;"></div>
+            </div>
+        </div>
+        
+        <div class="campfire">
+            <div class="campfire-animation"></div>
+        </div>
+    </div>
+
+    <script>
+        // Simulate the Python script functionality
+        async function fetchWikipediaEvents() {
+            const fetchBtn = document.getElementById('fetchBtn');
+            const loading = document.getElementById('loading');
+            const error = document.getElementById('error');
+            const results = document.getElementById('results');
+            const dateHeader = document.getElementById('date-header');
+            const eventsList = document.getElementById('events-list');
+            const successMessage = document.getElementById('success-message');
+            
+            // Reset UI
+            fetchBtn.disabled = true;
+            loading.style.display = 'block';
+            error.style.display = 'none';
+            results.style.display = 'none';
+            
+            try {
+                // Simulate API call delay
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Since we can't actually run Python from the browser, 
+                // we'll simulate the Wikipedia scraping with mock data
+                const today = new Date();
+                const dateString = today.toLocaleDateString('en-US', { 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                
+                // Mock events data (in real implementation, this would come from your Python script)
+                const mockEvents = [
+                    "1633 – Galileo Galilei was tried before the Congregation for the Doctrine of the Faith for teaching that the Earth orbits around the Sun.",
+                    "1788 – New Hampshire became the ninth U.S. state to ratify the United States Constitution, making it the law of the land.",
+                    "1893 – The Ferris wheel, designed by George Ferris Jr., opened to the public at the World's Columbian Exposition in Chicago.",
+                    "1945 – The Battle of Okinawa ended with the surrender of organized Japanese resistance.",
+                    "1982 – The Falklands War ended with the surrender of Argentine forces in the Falkland Islands to British forces."
+                ];
+                
+                // Display results
+                loading.style.display = 'none';
+                results.style.display = 'block';
+                
+                dateHeader.innerHTML = `<h2>On this day – ${dateString}:</h2>`;
+                
+                eventsList.innerHTML = '';
+                mockEvents.forEach(event => {
+                    const li = document.createElement('li');
+                    li.textContent = event;
+                    eventsList.appendChild(li);
+                });
+                
+                successMessage.style.display = 'block';
+                successMessage.textContent = `Unga bunga carved ${mockEvents.length} stories on stone: on_this_day_${today.toISOString().split('T')[0]}.txt`;
+                
+            } catch (err) {
+                loading.style.display = 'none';
+                error.style.display = 'block';
+                error.textContent = 'Cave spirits block path: ' + err.message + '. Unga bunga frustrated.';
+            } finally {
+                fetchBtn.disabled = false;
+            }
+        }
+        
+        // Auto-fetch on page load
+        window.addEventListener('load', () => {
+            setTimeout(fetchWikipediaEvents, 1000);
+        });
+    </script>
+</body>
+</html>
+# Unga Bunga Frontend HTML Commit
