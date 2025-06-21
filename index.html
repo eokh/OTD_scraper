@@ -85,39 +85,100 @@
         .campfire {
             text-align: center;
             margin-top: 40px;
+            position: relative;
         }
         
         .campfire img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
         }
         
-        /* Simple animated campfire using CSS */
+        /* Unga bunga make digital fire dance with CSS magic */
         .campfire-animation {
-            width: 50px;
-            height: 50px;
+            width: 80px;
+            height: 80px;
             margin: 0 auto;
             position: relative;
-            background: linear-gradient(45deg, #ff6b35, #ff8e53, #ff6b35);
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            animation: flicker 1.5s ease-in-out infinite alternate;
+            background: radial-gradient(circle at 50% 80%, #ff4500, #ff6b35, #ff8e53, #ff6b35);
+            border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+            animation: flicker 2s ease-in-out infinite alternate;
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.6);
         }
         
         .campfire-animation::before {
             content: '';
             position: absolute;
-            top: 10px;
-            left: 15px;
-            width: 20px;
+            top: 15px;
+            left: 25px;
+            width: 30px;
+            height: 50px;
+            background: radial-gradient(circle at 50% 80%, #ff8e53, #ffad7a, #ffcc99);
+            border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+            animation: flicker 1.8s ease-in-out infinite alternate-reverse;
+            box-shadow: 0 0 15px rgba(255, 142, 83, 0.5);
+        }
+        
+        .campfire-animation::after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 35px;
+            width: 15px;
             height: 30px;
-            background: linear-gradient(45deg, #ff8e53, #ffad7a);
+            background: radial-gradient(circle at 50% 85%, #ffcc99, #ffe0b3, #fff8dc);
             border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            animation: flicker 1.2s ease-in-out infinite alternate;
+            animation: flicker 1.5s ease-in-out infinite alternate;
+            opacity: 0.9;
+        }
+        
+        /* Add wood base for campfire */
+        .campfire::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 8px;
+            background: linear-gradient(90deg, #654321, #8b4513, #654321);
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .campfire::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 40px;
+            height: 6px;
+            background: linear-gradient(90deg, #8b4513, #a0522d, #8b4513);
+            border-radius: 3px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.4);
         }
         
         @keyframes flicker {
-            0% { transform: scale(1) rotate(-2deg); }
-            100% { transform: scale(1.1) rotate(2deg); }
+            0% { 
+                transform: scale(1) rotate(-1deg) skewX(1deg); 
+                filter: brightness(1) hue-rotate(0deg);
+            }
+            25% { 
+                transform: scale(1.05) rotate(1deg) skewX(-0.5deg); 
+                filter: brightness(1.1) hue-rotate(5deg);
+            }
+            50% { 
+                transform: scale(0.98) rotate(-0.5deg) skewX(0.8deg); 
+                filter: brightness(0.95) hue-rotate(-3deg);
+            }
+            75% { 
+                transform: scale(1.08) rotate(0.8deg) skewX(-1deg); 
+                filter: brightness(1.15) hue-rotate(8deg);
+            }
+            100% { 
+                transform: scale(1.02) rotate(-1.2deg) skewX(0.5deg); 
+                filter: brightness(1.05) hue-rotate(-2deg);
+            }
         }
     </style>
 </head>
@@ -147,8 +208,9 @@
     </div>
 
     <script>
-        // Simulate the Python script functionality
+        // Unga bunga make cave painting dance with JavaScript magic
         async function fetchWikipediaEvents() {
+            // Gather sacred cave painting elements. Unga bunga need all tools.
             const fetchBtn = document.getElementById('fetchBtn');
             const loading = document.getElementById('loading');
             const error = document.getElementById('error');
@@ -157,25 +219,25 @@
             const eventsList = document.getElementById('events-list');
             const successMessage = document.getElementById('success-message');
             
-            // Reset UI
+            // Clean cave wall before new paintings. Unga bunga start fresh.
             fetchBtn.disabled = true;
             loading.style.display = 'block';
             error.style.display = 'none';
             results.style.display = 'none';
             
             try {
-                // Simulate API call delay
+                // Wait for cave spirits to bring stories. Patience make good hunter.
                 await new Promise(resolve => setTimeout(resolve, 2000));
                 
-                // Since we can't actually run Python from the browser, 
-                // we'll simulate the Wikipedia scraping with mock data
+                // Unga bunga cannot hunt real Wikipedia from cave painting, 
+                // so make pretend stories like shadow puppets on wall
                 const today = new Date();
                 const dateString = today.toLocaleDateString('en-US', { 
                     month: 'long', 
                     day: 'numeric' 
                 });
                 
-                // Mock events data (in real implementation, this would come from your Python script)
+                // Ancient stories carved on digital stone (real Python snake would bring these)
                 const mockEvents = [
                     "1633 – Galileo Galilei was tried before the Congregation for the Doctrine of the Faith for teaching that the Earth orbits around the Sun.",
                     "1788 – New Hampshire became the ninth U.S. state to ratify the United States Constitution, making it the law of the land.",
@@ -184,12 +246,13 @@
                     "1982 – The Falklands War ended with the surrender of Argentine forces in the Falkland Islands to British forces."
                 ];
                 
-                // Display results
+                // Paint stories on cave wall for tribe to see
                 loading.style.display = 'none';
                 results.style.display = 'block';
                 
                 dateHeader.innerHTML = `<h2>On this day – ${dateString}:</h2>`;
                 
+                // Clear old paintings, make room for new stories
                 eventsList.innerHTML = '';
                 mockEvents.forEach(event => {
                     const li = document.createElement('li');
@@ -197,23 +260,25 @@
                     eventsList.appendChild(li);
                 });
                 
+                // Unga bunga proud! Show success like hunter returning with mammoth.
                 successMessage.style.display = 'block';
                 successMessage.textContent = `Unga bunga carved ${mockEvents.length} stories on stone: on_this_day_${today.toISOString().split('T')[0]}.txt`;
                 
             } catch (err) {
+                // Cave spirits angry! Show error like storm clouds.
                 loading.style.display = 'none';
                 error.style.display = 'block';
                 error.textContent = 'Cave spirits block path: ' + err.message + '. Unga bunga frustrated.';
             } finally {
+                // Always make button work again. Good tools never stay broken.
                 fetchBtn.disabled = false;
             }
         }
         
-        // Auto-fetch on page load
+        // When cave painting first appear, automatically hunt for stories
         window.addEventListener('load', () => {
             setTimeout(fetchWikipediaEvents, 1000);
         });
     </script>
 </body>
 </html>
-# Unga Bunga Frontend HTML Commit
