@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>On This Day</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main>
+    <h1>On This Day – {{ today }}</h1>
+    <button onclick="location.reload()" class="fire-button">Fetch Wisdom</button>
+    <ul>
+      {% for event in events %}
+        <li>{{ event }}</li>
+      {% endfor %}
+    </ul>
+    <div class="campfire"></div>
+  </main>
+</body>
+</html>
+
