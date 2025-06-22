@@ -48,7 +48,7 @@ body::before {
   animation: bgFloat 25s ease-in-out infinite alternate;
 }
 
-/* Translucent overlay for legibility */
+/* Translucent overlay for legibility - darkened by 40% */
 body::after {
   content: '';
   position: fixed;
@@ -56,7 +56,7 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.45);
   z-index: -1;
 }
 
@@ -411,13 +411,13 @@ button:disabled {
     <h1>On This Day</h1>
     <div class="live-date" id="live-date"></div>
     <p class="subtitle">"Seek wisdom; light spark." - Kay V. Mann<br><br>
-    <span style="font-size: 0.9em; opacity: 0.8; font-style: normal;">This tool find stories in fire for humans to share and put on cave wall.</span></p>
+    <span style="font-size: 0.9em; opacity: 0.8; font-style: normal;">This tool find stories in fire for humans to share and put on cave wall. Poke shiny button.</span></p>
 
 ```
 <button onclick="fetchSardonicWisdom()" id="wisdom-btn">Spark Fire</button>
 
 <div id="facts">
-  <p class="fact">🦴 Loading sardonic caveman wisdom from the mists of time...</p>
+  <p class="fact">🔥 A guiding light emerges...</p>
 </div>
 
 <div class="fire">
