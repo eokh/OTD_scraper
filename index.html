@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>On This Day - Historical Wisdom</title>
+  <title>On This Day - Sardonic Caveman Wisdom</title>
   <style>
     * {
       margin: 0;
@@ -88,12 +88,25 @@ h1 {
   font-size: 3em;
   font-weight: 700;
   letter-spacing: 2px;
+  margin-bottom: 5px;
+  background: linear-gradient(135deg, #ff4500, #ff6b35, #8e44ad);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+.live-date {
+  font-size: 0.8em;
+  font-weight: 700;
+  letter-spacing: 2px;
   margin-bottom: 15px;
   background: linear-gradient(135deg, #ff4500, #ff6b35, #8e44ad);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: glow 3s ease-in-out infinite alternate;
+  opacity: 0.8;
 }
 
 @keyframes glow {
@@ -162,6 +175,18 @@ button:disabled {
   box-shadow: 0 8px 25px rgba(142, 68, 173, 0.2);
   border-left-color: #8e44ad;
   background: rgba(255, 245, 230, 0.30);
+}
+
+/* Sardonic caveman styling for AI-enhanced facts */
+.fact.sardonic {
+  border-left-color: #8e44ad;
+  background: rgba(142, 68, 173, 0.05);
+  font-style: italic;
+}
+
+.fact.sardonic:hover {
+  border-left-color: #ff4500;
+  background: rgba(255, 69, 0, 0.08);
 }
 
 .fire {
@@ -267,7 +292,7 @@ button:disabled {
   opacity: 0;
 }
 
-/* Large embers spread across page - BIGGER sizes */
+/* Large embers spread across page */
 .particle:nth-child(1) { 
   width: 16px; height: 16px; 
   top: 20%; left: 15%; 
@@ -316,102 +341,6 @@ button:disabled {
   background: radial-gradient(circle, rgba(255, 69, 0, 0.5), rgba(255, 173, 122, 0.3));
   animation-delay: 2s; 
 }
-.particle:nth-child(9) { 
-  width: 15px; height: 15px; 
-  top: 70%; left: 80%; 
-  background: radial-gradient(circle, rgba(74, 144, 226, 0.45), rgba(142, 68, 173, 0.25));
-  animation-delay: 5s; 
-}
-.particle:nth-child(10) { 
-  width: 28px; height: 28px; 
-  top: 35%; left: 20%; 
-  background: radial-gradient(circle, rgba(255, 173, 122, 0.4), rgba(255, 107, 53, 0.2));
-  animation-delay: 8s; 
-}
-.particle:nth-child(11) { 
-  width: 13px; height: 13px; 
-  top: 55%; left: 90%; 
-  background: radial-gradient(circle, rgba(142, 68, 173, 0.5), rgba(74, 144, 226, 0.3));
-  animation-delay: 10.5s; 
-}
-.particle:nth-child(12) { 
-  width: 21px; height: 21px; 
-  top: 25%; left: 75%; 
-  background: radial-gradient(circle, rgba(255, 69, 0, 0.45), rgba(255, 173, 122, 0.25));
-  animation-delay: 12s; 
-}
-.particle:nth-child(13) { 
-  width: 17px; height: 17px; 
-  top: 85%; left: 35%; 
-  background: radial-gradient(circle, rgba(74, 144, 226, 0.4), rgba(142, 68, 173, 0.2));
-  animation-delay: 14s; 
-}
-.particle:nth-child(14) { 
-  width: 30px; height: 30px; 
-  top: 45%; left: 5%; 
-  background: radial-gradient(circle, rgba(255, 107, 53, 0.5), rgba(255, 173, 122, 0.3));
-  animation-delay: 3.5s; 
-}
-.particle:nth-child(15) { 
-  width: 14px; height: 14px; 
-  top: 65%; left: 45%; 
-  background: radial-gradient(circle, rgba(255, 173, 122, 0.45), rgba(142, 68, 173, 0.25));
-  animation-delay: 6.5s; 
-}
-.particle:nth-child(16) { 
-  width: 19px; height: 19px; 
-  top: 10%; left: 65%; 
-  background: radial-gradient(circle, rgba(142, 68, 173, 0.4), rgba(74, 144, 226, 0.2));
-  animation-delay: 9.5s; 
-}
-.particle:nth-child(17) { 
-  width: 25px; height: 25px; 
-  top: 90%; left: 50%; 
-  background: radial-gradient(circle, rgba(255, 69, 0, 0.5), rgba(255, 173, 122, 0.3));
-  animation-delay: 11s; 
-}
-.particle:nth-child(18) { 
-  width: 16px; height: 16px; 
-  top: 5%; left: 30%; 
-  background: radial-gradient(circle, rgba(74, 144, 226, 0.45), rgba(142, 68, 173, 0.25));
-  animation-delay: 13.5s; 
-}
-.particle:nth-child(19) { 
-  width: 23px; height: 23px; 
-  top: 75%; left: 95%; 
-  background: radial-gradient(circle, rgba(255, 107, 53, 0.4), rgba(255, 173, 122, 0.2));
-  animation-delay: 1s; 
-}
-.particle:nth-child(20) { 
-  width: 27px; height: 27px; 
-  top: 50%; left: 25%; 
-  background: radial-gradient(circle, rgba(255, 173, 122, 0.5), rgba(255, 107, 53, 0.3));
-  animation-delay: 4s; 
-}
-.particle:nth-child(21) { 
-  width: 18px; height: 18px; 
-  top: 20%; left: 85%; 
-  background: radial-gradient(circle, rgba(142, 68, 173, 0.45), rgba(74, 144, 226, 0.25));
-  animation-delay: 7s; 
-}
-.particle:nth-child(22) { 
-  width: 32px; height: 32px; 
-  top: 65%; left: 75%; 
-  background: radial-gradient(circle, rgba(255, 69, 0, 0.4), rgba(255, 173, 122, 0.2));
-  animation-delay: 10s; 
-}
-.particle:nth-child(23) { 
-  width: 15px; height: 15px; 
-  top: 35%; left: 55%; 
-  background: radial-gradient(circle, rgba(74, 144, 226, 0.4), rgba(142, 68, 173, 0.2));
-  animation-delay: 13s; 
-}
-.particle:nth-child(24) { 
-  width: 29px; height: 29px; 
-  top: 80%; left: 15%; 
-  background: radial-gradient(circle, rgba(255, 107, 53, 0.5), rgba(255, 173, 122, 0.3));
-  animation-delay: 2.5s; 
-}
 
 @keyframes ember {
   0% { 
@@ -451,11 +380,16 @@ button:disabled {
   }
 }
 
+
+
 @media (max-width: 768px) {
   .container { padding: 40px 15px; }
   h1 { font-size: 2.2em; }
   .flame { width: 60px; height: 60px; }
   .fact { padding: 15px; margin: 15px 0; }
+  .status-indicator { 
+    display: none;
+  }
 }
 ```
 
@@ -475,18 +409,15 @@ button:disabled {
 
   <div class="container">
     <h1>On This Day</h1>
+    <div class="live-date" id="live-date"></div>
     <p class="subtitle">"Seek wisdom; light spark." - Kay V. Mann<br><br>
-    <span style="font-size: 0.9em; opacity: 0.8; font-style: normal;">This tool find old stories from many moons ago. Click shiny button, get new cave tales from long-long time past.</span></p>
+    <span style="font-size: 0.9em; opacity: 0.8; font-style: normal;">This tool find stories in fire for humans to share and put on cave wall.</span></p>
 
 ```
-<button onclick="fetchWisdom()">Fetch Wisdom</button>
+<button onclick="fetchSardonicWisdom()" id="wisdom-btn">Fetch Wisdom</button>
 
 <div id="facts">
-  <p class="fact">1633 – Galileo Galilei was tried before the Congregation for the Doctrine of the Faith for teaching that the Earth orbits around the Sun.</p>
-  <p class="fact">1788 – New Hampshire became the ninth U.S. state to ratify the United States Constitution, making it the law of the land.</p>
-  <p class="fact">1893 – The Ferris wheel, designed by George Ferris Jr., opened to the public at the World's Columbian Exposition in Chicago.</p>
-  <p class="fact">1945 – The Battle of Okinawa ended with the surrender of organized Japanese resistance.</p>
-  <p class="fact">1982 – The Falklands War ended with the surrender of Argentine forces in the Falkland Islands to British forces.</p>
+  <p class="fact">🦴 Loading sardonic caveman wisdom from the mists of time...</p>
 </div>
 
 <div class="fire">
@@ -498,94 +429,189 @@ button:disabled {
   </div>
 
   <script>
-    // Unga bunga make magic stories appear on screen rectangle
-    const historicalFacts = [
-      "1969 – Apollo 11 launches from Kennedy Space Center, beginning humanity's journey to the Moon.",
-      "1975 – The first blockbuster film 'Jaws' is released, revolutionizing Hollywood marketing.",
-      "1953 – Queen Elizabeth II is crowned at Westminster Abbey in a televised ceremony watched by millions.",
-      "1944 – D-Day: Allied forces land in Normandy, beginning the liberation of Western Europe.",
-      "1783 – The Montgolfier brothers demonstrate the first hot air balloon flight in France.",
-      "1776 – The American Declaration of Independence is adopted by the Continental Congress.",
-      "1633 – Galileo Galilei is tried for teaching that the Earth orbits around the Sun.",
-      "1788 – New Hampshire becomes the ninth state to ratify the US Constitution.",
-      "1893 – The Ferris wheel opens to the public at the World's Columbian Exposition in Chicago.",
-      "1945 – The Battle of Okinawa ends with the surrender of organized Japanese resistance.",
-      "1982 – The Falklands War ends with Argentine surrender to British forces.",
-      "1969 – Neil Armstrong and Buzz Aldrin become the first humans to walk on the Moon.",
-      "1989 – The Berlin Wall falls, symbolizing the end of the Cold War division.",
-      "1963 – Martin Luther King Jr. delivers his 'I Have a Dream' speech in Washington, D.C.",
-      "1955 – Rosa Parks refuses to give up her bus seat, sparking the Montgomery Bus Boycott.",
-      "1492 – Christopher Columbus reaches the Americas, changing world history forever.",
-      "1865 – President Abraham Lincoln is assassinated by John Wilkes Booth at Ford's Theatre.",
-      "1912 – The RMS Titanic sinks on its maiden voyage after striking an iceberg.",
-      "1906 – The Great San Francisco Earthquake and Fire devastates the city.",
-      "1969 – The Woodstock music festival begins, defining a generation's counterculture movement.",
-      "1973 – The World Trade Center twin towers are officially dedicated in New York City.",
-      "1981 – IBM releases its first personal computer, revolutionizing home computing.",
-      "1969 – The first message is sent over ARPANET, precursor to the modern internet.",
-      "1928 – Alexander Fleming discovers penicillin, revolutionizing medicine and saving millions of lives.",
-      "1903 – The Wright brothers achieve the first powered flight at Kitty Hawk, North Carolina.",
-      "1957 – The Soviet Union launches Sputnik 1, beginning the Space Race.",
-      "1961 – Yuri Gagarin becomes the first human to journey into space aboard Vostok 1.",
-      "1970 – The first Earth Day is celebrated, launching the modern environmental movement.",
-      "1974 – President Nixon resigns following the Watergate scandal.",
-      "1991 – The World Wide Web is made publicly available, transforming global communication."
-    ];
-
-    let lastShownFacts = [];
-
-    // Get fresh stories without repeating recent ones
-    function getRandomFacts(count = 5) {
-      let available = historicalFacts.filter(fact => !lastShownFacts.includes(fact));
-      if (available.length < count) {
-        available = historicalFacts.filter(fact => !getCurrentFacts().includes(fact));
+    // 🦴 Sardonic Caveman Storyteller System
+    class SardonicCavemanApp {
+      constructor() {
+        this.isLoading = false;
+        this.aiEnabled = false;
+        this.fallbackFacts = [
+          "1969 – Apollo 11 successfully lands on the Moon, and Neil Armstrong becomes the first human to walk on its surface.",
+          "1776 – The Continental Congress approves the Declaration of Independence.",
+          "1969 – The first Woodstock Festival begins in New York.",
+          "1945 – World War II ends with Japan's surrender.",
+          "1989 – The Berlin Wall falls, symbolizing the end of the Cold War.",
+          "1903 – The Wright brothers achieve the first powered flight at Kitty Hawk, North Carolina.",
+          "1955 – Rosa Parks refuses to give up her bus seat, sparking the Montgomery Bus Boycott.",
+          "1963 – Martin Luther King Jr. delivers his 'I Have a Dream' speech in Washington, D.C.",
+          "1991 – The World Wide Web is made publicly available, transforming global communication.",
+          "1928 – Alexander Fleming discovers penicillin, revolutionizing medicine and saving millions of lives."
+        ];
+        this.init();
       }
-      return available.sort(() => 0.5 - Math.random()).slice(0, count);
-    }
 
-    // Check what stories currently showing on cave wall
-    function getCurrentFacts() {
-      return Array.from(document.querySelectorAll('.fact')).map(el => el.textContent);
-    }
-
-    // Main wisdom gathering ceremony
-    function fetchWisdom() {
-      const container = document.getElementById('facts');
-      const button = document.querySelector('button');
-      
-      button.disabled = true;
-      button.textContent = 'Gathering Wisdom...';
-      
-      const newFacts = getRandomFacts(5);
-      lastShownFacts = newFacts;
-      
-      setTimeout(() => {
-        container.innerHTML = '';
-        newFacts.forEach((fact, i) => {
-          setTimeout(() => {
-            const factEl = document.createElement('p');
-            factEl.className = 'fact';
-            factEl.textContent = fact;
-            factEl.style.opacity = '0';
-            factEl.style.transform = 'translateY(20px)';
-            factEl.style.transition = 'all 0.4s ease';
-            
-            container.appendChild(factEl);
-            
-            setTimeout(() => {
-              factEl.style.opacity = '1';
-              factEl.style.transform = 'translateY(0)';
-            }, 10);
-          }, i * 150);
-        });
+      init() {
+        this.updateLiveDate();
+        this.checkAIStatus();
+        setTimeout(() => this.fetchSardonicWisdom(), 1500);
         
-        button.disabled = false;
-        button.textContent = 'Fetch Wisdom';
-      }, 1000);
+        // Update date every minute
+        setInterval(() => this.updateLiveDate(), 60000);
+        
+        // Keyboard shortcut (Space bar)
+        document.addEventListener('keydown', (e) => {
+          if (e.code === 'Space' && !this.isLoading) {
+            e.preventDefault();
+            this.fetchSardonicWisdom();
+          }
+        });
+      }
+
+      updateLiveDate() {
+        const now = new Date();
+        const options = { 
+          month: 'long', 
+          day: 'numeric' 
+        };
+        const dateString = now.toLocaleDateString('en-US', options);
+        document.getElementById('live-date').textContent = dateString;
+      }
+
+      async checkAIStatus() {
+        try {
+          // Simulate AI check - in real version this would hit /api/health
+          this.aiEnabled = Math.random() > 0.5; // 50% chance for demo
+        } catch (error) {
+          this.aiEnabled = false;
+        }
+      }
+
+      async fetchSardonicWisdom() {
+        if (this.isLoading) return;
+        
+        const factsContainer = document.getElementById('facts');
+        const button = document.getElementById('wisdom-btn');
+        
+        this.isLoading = true;
+        
+        // Update UI
+        button.disabled = true;
+        button.textContent = 'Fire thinking...';
+        factsContainer.classList.add('loading');
+        
+        try {
+          if (this.aiEnabled) {
+            // Simulate AI-enhanced sardonic stories
+            const facts = await this.generateSardonicStories();
+            this.displayFacts(facts, true);
+          } else {
+            // Use fallback facts with basic caveman enhancement
+            const facts = this.enhanceFallbackFacts();
+            this.displayFacts(facts, false);
+          }
+          
+        } catch (error) {
+          console.error('❌ Wisdom gathering failed:', error);
+          this.showError('Cave spirits too sarcastic today. Try again!');
+        } finally {
+          // Restore UI
+          setTimeout(() => {
+            button.disabled = false;
+            button.textContent = 'Fetch Wisdom';
+            factsContainer.classList.remove('loading');
+            this.isLoading = false;
+          }, 1000);
+        }
+      }
+
+      async generateSardonicStories() {
+        // Simulate API call delay
+        await new Promise(resolve => setTimeout(resolve, 800));
+        
+        // Sample sardonic caveman stories with years (limited to 3)
+        const sardonicStories = [
+          "1969 – Fire say moon landing! Neil Armstrong hop around like confused rabbit on big rock. Very impressive for hairless apes who usually just make fire and argue about who get best mammoth meat.",
+          "1776 – Continental Congress write angry letter to King George. Fire think: 'Why not just throw rocks at him?' But no, modern humans use fancy words. Still effective, but take much longer than good club bonk.",
+          "1989 – Berlin Wall fall down! Humans finally learn what fire always know - walls stupid. Much better to just growl at neighbors you no like. More honest, less construction work."
+        ];
+        
+        return sardonicStories.map((story, index) => ({
+          story: story,
+          original: this.fallbackFacts[index],
+          reliability: "Unga bunga verified",
+          category: "sardonic-wisdom"
+        }));
+      }
+
+      enhanceFallbackFacts() {
+        const shuffled = [...this.fallbackFacts].sort(() => 0.5 - Math.random()).slice(0, 3);
+        return shuffled.map(fact => ({
+          story: `Fire say: ${fact}. Humans always do same things over and over.`,
+          original: fact,
+          reliability: "Basic cave knowledge",
+          category: "fallback"
+        }));
+      }
+
+      displayFacts(facts, isAI) {
+        const container = document.getElementById('facts');
+        container.innerHTML = '';
+        
+        facts.forEach((fact, index) => {
+          setTimeout(() => {
+            this.addFactWithAnimation(container, fact, isAI);
+          }, index * 150);
+        });
+      }
+
+      addFactWithAnimation(container, fact, isAI) {
+        const factElement = document.createElement('p');
+        factElement.className = isAI ? 'fact sardonic' : 'fact';
+        factElement.textContent = fact.story;
+        factElement.style.opacity = '0';
+        factElement.style.transform = 'translateY(20px)';
+        factElement.style.transition = 'all 0.4s ease';
+        
+        if (fact.reliability) {
+          factElement.title = `${fact.reliability} | Category: ${fact.category}`;
+        }
+        
+        container.appendChild(factElement);
+        
+        // Trigger animation
+        setTimeout(() => {
+          factElement.style.opacity = '1';
+          factElement.style.transform = 'translateY(0)';
+        }, 10);
+      }
+
+      showError(message) {
+        const factsContainer = document.getElementById('facts');
+        factsContainer.innerHTML = `
+          <p class="fact" style="border-left-color: #d32f2f; background: rgba(211, 47, 47, 0.1);">
+            ${message}
+          </p>
+        `;
+      }
     }
 
-    // Auto-start when cave drawing loads
-    window.addEventListener('load', () => setTimeout(fetchWisdom, 1500));
+    // Initialize app
+    let sardonicApp;
+    document.addEventListener('DOMContentLoaded', () => {
+      sardonicApp = new SardonicCavemanApp();
+    });
+
+    // Global function for backward compatibility
+    function fetchSardonicWisdom() {
+      if (sardonicApp) {
+        sardonicApp.fetchSardonicWisdom();
+      }
+    }
+
+    // Console messages
+    console.log('🔥 Fire Caveman Frontend Ready!');
+    console.log('💡 Press SPACE to fetch new wisdom');
+    console.log('😏 Fire ready to be sarcastic about history');
+    console.log('🔥 Beautiful campfire animations preserved!');
   </script>
 
 </body>
