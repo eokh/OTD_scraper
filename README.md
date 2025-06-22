@@ -1,9 +1,4 @@
-Here is the full README as a single clean, copy-pasteable block of text:
-
-⸻
-
-
-# On This Day Scraper – Unga Bunga Edition 🔥🪨🦴
+# On This Day Scraper – Unga Bunga Edition
 
 ## Why This Exists
 Fire let early humans share warmth and light. Knowledge does the same for the present.  
@@ -54,10 +49,10 @@ How It Works
 Evolution Roadmap
 
 Stage	Symbol	Goal
-Spark	🔥	Working CLI scraper
-Canvas	🎨	Rich HTML layout, typography, and motion
-Digital Fire	💻🔥	Interactive page with live parallax effects
-Immersive Sky	🌌	Future VR-style experience where a virtual elder narrates events
+Spark	Fire	Working CLI scraper
+Canvas	Paint	Rich HTML layout, typography, and motion
+Digital Fire	Screen	Interactive page with live parallax effects
+Immersive Sky	Sky	Future VR-style experience where a virtual elder narrates events
 
 Contributing
 
@@ -70,6 +65,3 @@ Public domain. Use it, remix it, pass it along the fire circle.
 
 “The first spark of code and the first spark of fire serve the same end – keeping stories alive.”
 
----
-
-You can now paste this directly into your `README.md` file.
