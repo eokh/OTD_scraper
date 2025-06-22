@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>On This Day - Sardonic Caveman Wisdom</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Courier New', Courier, monospace !important;
+    }
+
+```
+body {
+  color: #1a1a1a;
+  line-height: 1.7;
+  letter-spacing: 0.5px;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Enhanced background with complementary colors */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255, 69, 0, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(142, 68, 173, 0.10) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(74, 144, 226, 0.08) 0%, transparent 50%),
+    linear-gradient(135deg, 
+      #3a7bc8 0%, 
+      #4a85d1 15%, 
+      #5a95da 30%, 
+      #4580cc 45%, 
+      #3570b8 60%, 
+      #4585d0 75%, 
+      #3a7bc8 100%
+    );
+  z-index: -2;
+  animation: bgFloat 25s ease-in-out infinite alternate;
+}
+
+/* Translucent overlay for legibility */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  z-index: -1;
+}
+
+@keyframes bgFloat {
+  0% { 
+    transform: scale(1) rotate(0deg);
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  50% { 
+    transform: scale(1.05) rotate(1deg);
+    filter: hue-rotate(10deg) brightness(1.1);
+  }
+  100% { 
+    transform: scale(1.02) rotate(-1deg);
+    filter: hue-rotate(-5deg) brightness(0.95);
+  }
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  background: linear-gradient(135deg, #ff4500, #ff6b35, #8e44ad);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+.live-date {
+  font-size: 0.8em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #ff4500, #ff6b35, #8e44ad);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 3s ease-in-out infinite alternate;
+  opacity: 0.8;
+}
+
+@keyframes glow {
+  0% { filter: drop-shadow(0 0 5px rgba(255, 69, 0, 0.3)); }
+  100% { filter: drop-shadow(0 0 15px rgba(142, 68, 173, 0.6)); }
+}
+
+.subtitle {
+  font-style: italic;
+  margin-bottom: 30px;
+  font-size: 1.1em;
+  color: #555;
+  letter-spacing: 1px;
+}
+
+button {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 15px 35px;
+  background: linear-gradient(135deg, #ff4500, #ff6b35, #8e44ad, #4a90e2);
+  border: 2px solid rgba(255, 107, 53, 0.3);
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 30px auto;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  box-shadow: 0 6px 20px rgba(255, 69, 0, 0.3);
+  transition: all 0.3s ease;
+  display: block;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #ff6b35, #8e44ad, #4a90e2, #ffffff);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(142, 68, 173, 0.4);
+}
+
+button:disabled {
+  background: #ccc;
+  color: #999;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+#facts {
+  margin: 40px 0;
+  min-height: 300px;
+}
+
+.fact {
+  margin: 20px 0;
+  padding: 20px;
+  background: rgba(255, 248, 240, 0.20);
+  border-left: 5px solid #ff6b35;
+  border-radius: 0 12px 12px 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.1);
+  letter-spacing: 0.5px;
+  line-height: 1.8;
+}
+
+.fact:hover {
+  transform: translateX(8px) translateY(-2px);
+  box-shadow: 0 8px 25px rgba(142, 68, 173, 0.2);
+  border-left-color: #8e44ad;
+  background: rgba(255, 245, 230, 0.30);
+}
+
+/* Sardonic caveman styling for AI-enhanced facts */
+.fact.sardonic {
+  border-left-color: #8e44ad;
+  background: rgba(142, 68, 173, 0.05);
+  font-style: italic;
+}
+
+.fact.sardonic:hover {
+  border-left-color: #ff4500;
+  background: rgba(255, 69, 0, 0.08);
+}
+
+.fire {
+  margin-top: 60px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  height: 120px;
+}
+
+.flame {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 50% 80%, 
+    #ff4500 0%, #ff6b35 30%, #ffad7a 60%, #8e44ad 90%);
+  border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+  position: relative;
+  animation: flicker 2s ease-in-out infinite alternate;
+  box-shadow: 0 0 40px rgba(255, 69, 0, 0.8), 0 0 80px rgba(142, 68, 173, 0.3);
+}
+
+.flame::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  width: 40px;
+  height: 50px;
+  background: radial-gradient(circle at 50% 80%, 
+    #ff8e53 0%, #ffcc99 50%, #4a90e2 90%);
+  border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+  animation: flicker 1.8s ease-in-out infinite alternate-reverse;
+}
+
+.flame::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  width: 20px;
+  height: 30px;
+  background: radial-gradient(circle at 50% 85%, 
+    #ffcc99 0%, #ffe0b3 60%, #ffffff 100%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: flicker 1.5s ease-in-out infinite alternate;
+}
+
+.logs {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 8px;
+  background: linear-gradient(90deg, #654321, #8b4513, #654321);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.logs::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 60px;
+  height: 6px;
+  background: linear-gradient(90deg, #8b4513, #a0522d, #8b4513);
+  border-radius: 3px;
+}
+
+@keyframes flicker {
+  0% { 
+    transform: scale(1) rotate(-2deg); 
+    filter: brightness(1) hue-rotate(0deg);
+  }
+  50% { 
+    transform: scale(1.1) rotate(2deg); 
+    filter: brightness(1.2) hue-rotate(10deg);
+  }
+  100% { 
+    transform: scale(0.95) rotate(-1deg); 
+    filter: brightness(0.9) hue-rotate(-5deg);
+  }
+}
+
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Enhanced ember-like particles */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: ember 15s infinite linear;
+  opacity: 0;
+}
+
+/* Large embers spread across page */
+.particle:nth-child(1) { 
+  width: 16px; height: 16px; 
+  top: 20%; left: 15%; 
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.5), rgba(255, 173, 122, 0.25));
+  animation-delay: 0s; 
+}
+.particle:nth-child(2) { 
+  width: 22px; height: 22px; 
+  top: 50%; left: 85%; 
+  background: radial-gradient(circle, rgba(255, 69, 0, 0.4), rgba(142, 68, 173, 0.2));
+  animation-delay: 3s; 
+}
+.particle:nth-child(3) { 
+  width: 12px; height: 12px; 
+  top: 75%; left: 25%; 
+  background: radial-gradient(circle, rgba(142, 68, 173, 0.45), rgba(74, 144, 226, 0.25));
+  animation-delay: 6s; 
+}
+.particle:nth-child(4) { 
+  width: 18px; height: 18px; 
+  top: 30%; left: 70%; 
+  background: radial-gradient(circle, rgba(74, 144, 226, 0.4), rgba(255, 173, 122, 0.2));
+  animation-delay: 9s; 
+}
+.particle:nth-child(5) { 
+  width: 26px; height: 26px; 
+  top: 60%; left: 10%; 
+  background: radial-gradient(circle, rgba(255, 173, 122, 0.5), rgba(255, 107, 53, 0.25));
+  animation-delay: 1.5s; 
+}
+.particle:nth-child(6) { 
+  width: 14px; height: 14px; 
+  top: 40%; left: 50%; 
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.45), rgba(142, 68, 173, 0.25));
+  animation-delay: 4.5s; 
+}
+.particle:nth-child(7) { 
+  width: 20px; height: 20px; 
+  top: 80%; left: 60%; 
+  background: radial-gradient(circle, rgba(142, 68, 173, 0.4), rgba(74, 144, 226, 0.2));
+  animation-delay: 7.5s; 
+}
+.particle:nth-child(8) { 
+  width: 24px; height: 24px; 
+  top: 15%; left: 40%; 
+  background: radial-gradient(circle, rgba(255, 69, 0, 0.5), rgba(255, 173, 122, 0.3));
+  animation-delay: 2s; 
+}
+
+@keyframes ember {
+  0% { 
+    transform: translateY(0) translateX(0) scale(1) rotate(0deg); 
+    opacity: 0;
+    filter: brightness(1) blur(0px);
+  }
+  15% { 
+    opacity: 0.6;
+    transform: translateY(-30px) translateX(8px) scale(1.3) rotate(45deg);
+    filter: brightness(1.2) blur(0.5px);
+  }
+  35% { 
+    opacity: 0.8;
+    transform: translateY(-80px) translateX(-15px) scale(1.1) rotate(90deg);
+    filter: brightness(1.4) blur(0px);
+  }
+  55% { 
+    opacity: 0.9;
+    transform: translateY(-140px) translateX(20px) scale(0.9) rotate(135deg);
+    filter: brightness(1.3) blur(0.3px);
+  }
+  75% { 
+    opacity: 0.5;
+    transform: translateY(-200px) translateX(-12px) scale(0.7) rotate(180deg);
+    filter: brightness(1.0) blur(0.8px);
+  }
+  90% { 
+    opacity: 0.2;
+    transform: translateY(-260px) translateX(18px) scale(0.5) rotate(225deg);
+    filter: brightness(0.8) blur(1px);
+  }
+  100% { 
+    opacity: 0;
+    transform: translateY(-320px) translateX(-8px) scale(0.3) rotate(270deg);
+    filter: brightness(0.5) blur(1.5px);
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .container { padding: 40px 15px; }
+  h1 { font-size: 2.2em; }
+  .flame { width: 60px; height: 60px; }
+  .fact { padding: 15px; margin: 15px 0; }
+  .status-indicator { 
+    display: none;
+  }
+}
+```
+
+  </style>
+</head>
+<body>
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div class="container">
+    <h1>On This Day</h1>
+    <div class="live-date" id="live-date"></div>
+    <p class="subtitle">"Seek wisdom; light spark." - Kay V. Mann<br><br>
+    <span style="font-size: 0.9em; opacity: 0.8; font-style: normal;">This tool find stories in fire for humans to share and put on cave wall.</span></p>
+
+```
+<button onclick="fetchSardonicWisdom()" id="wisdom-btn">Fetch Wisdom</button>
+
+<div id="facts">
+  <p class="fact">🦴 Loading sardonic caveman wisdom from the mists of time...</p>
+</div>
+
+<div class="fire">
+  <div class="flame"></div>
+  <div class="logs"></div>
+</div>
+```
+
+  </div>
+
+  <script>
+    // 🦴 Sardonic Caveman Storyteller System
+    class SardonicCavemanApp {
+      constructor() {
+        this.isLoading = false;
+        this.aiEnabled = false;
+        this.fallbackFacts = [
+          "1969 – Apollo 11 successfully lands on the Moon, and Neil Armstrong becomes the first human to walk on its surface.",
+          "1776 – The Continental Congress approves the Declaration of Independence.",
+          "1969 – The first Woodstock Festival begins in New York.",
+          "1945 – World War II ends with Japan's surrender.",
+          "1989 – The Berlin Wall falls, symbolizing the end of the Cold War.",
+          "1903 – The Wright brothers achieve the first powered flight at Kitty Hawk, North Carolina.",
+          "1955 – Rosa Parks refuses to give up her bus seat, sparking the Montgomery Bus Boycott.",
+          "1963 – Martin Luther King Jr. delivers his 'I Have a Dream' speech in Washington, D.C.",
+          "1991 – The World Wide Web is made publicly available, transforming global communication.",
+          "1928 – Alexander Fleming discovers penicillin, revolutionizing medicine and saving millions of lives."
+        ];
+        this.init();
+      }
+
+      init() {
+        this.updateLiveDate();
+        this.checkAIStatus();
+        setTimeout(() => this.fetchSardonicWisdom(), 1500);
+        
+        // Update date every minute
+        setInterval(() => this.updateLiveDate(), 60000);
+        
+        // Keyboard shortcut (Space bar)
+        document.addEventListener('keydown', (e) => {
+          if (e.code === 'Space' && !this.isLoading) {
+            e.preventDefault();
+            this.fetchSardonicWisdom();
+          }
+        });
+      }
+
+      updateLiveDate() {
+        const now = new Date();
+        const options = { 
+          month: 'long', 
+          day: 'numeric' 
+        };
+        const dateString = now.toLocaleDateString('en-US', options);
+        document.getElementById('live-date').textContent = dateString;
+      }
+
+      async checkAIStatus() {
+        try {
+          // Simulate AI check - in real version this would hit /api/health
+          this.aiEnabled = Math.random() > 0.5; // 50% chance for demo
+        } catch (error) {
+          this.aiEnabled = false;
+        }
+      }
+
+      async fetchSardonicWisdom() {
+        if (this.isLoading) return;
+        
+        const factsContainer = document.getElementById('facts');
+        const button = document.getElementById('wisdom-btn');
+        
+        this.isLoading = true;
+        
+        // Update UI
+        button.disabled = true;
+        button.textContent = 'Fire thinking...';
+        factsContainer.classList.add('loading');
+        
+        try {
+          if (this.aiEnabled) {
+            // Simulate AI-enhanced sardonic stories
+            const facts = await this.generateSardonicStories();
+            this.displayFacts(facts, true);
+          } else {
+            // Use fallback facts with basic caveman enhancement
+            const facts = this.enhanceFallbackFacts();
+            this.displayFacts(facts, false);
+          }
+          
+        } catch (error) {
+          console.error('❌ Wisdom gathering failed:', error);
+          this.showError('Cave spirits too sarcastic today. Try again!');
+        } finally {
+          // Restore UI
+          setTimeout(() => {
+            button.disabled = false;
+            button.textContent = 'Fetch Wisdom';
+            factsContainer.classList.remove('loading');
+            this.isLoading = false;
+          }, 1000);
+        }
+      }
+
+      async generateSardonicStories() {
+        // Simulate API call delay
+        await new Promise(resolve => setTimeout(resolve, 800));
+        
+        // Sample sardonic caveman stories with years (limited to 3)
+        const sardonicStories = [
+          "1969 – Fire say moon landing! Neil Armstrong hop around like confused rabbit on big rock. Very impressive for hairless apes who usually just make fire and argue about who get best mammoth meat.",
+          "1776 – Continental Congress write angry letter to King George. Fire think: 'Why not just throw rocks at him?' But no, modern humans use fancy words. Still effective, but take much longer than good club bonk.",
+          "1989 – Berlin Wall fall down! Humans finally learn what fire always know - walls stupid. Much better to just growl at neighbors you no like. More honest, less construction work."
+        ];
+        
+        return sardonicStories.map((story, index) => ({
+          story: story,
+          original: this.fallbackFacts[index],
+          reliability: "Unga bunga verified",
+          category: "sardonic-wisdom"
+        }));
+      }
+
+      enhanceFallbackFacts() {
+        const shuffled = [...this.fallbackFacts].sort(() => 0.5 - Math.random()).slice(0, 3);
+        return shuffled.map(fact => ({
+          story: `Fire say: ${fact}. Humans always do same things over and over.`,
+          original: fact,
+          reliability: "Basic cave knowledge",
+          category: "fallback"
+        }));
+      }
+
+      displayFacts(facts, isAI) {
+        const container = document.getElementById('facts');
+        container.innerHTML = '';
+        
+        facts.forEach((fact, index) => {
+          setTimeout(() => {
+            this.addFactWithAnimation(container, fact, isAI);
+          }, index * 150);
+        });
+      }
+
+      addFactWithAnimation(container, fact, isAI) {
+        const factElement = document.createElement('p');
+        factElement.className = isAI ? 'fact sardonic' : 'fact';
+        factElement.textContent = fact.story;
+        factElement.style.opacity = '0';
+        factElement.style.transform = 'translateY(20px)';
+        factElement.style.transition = 'all 0.4s ease';
+        
+        if (fact.reliability) {
+          factElement.title = `${fact.reliability} | Category: ${fact.category}`;
+        }
+        
+        container.appendChild(factElement);
+        
+        // Trigger animation
+        setTimeout(() => {
+          factElement.style.opacity = '1';
+          factElement.style.transform = 'translateY(0)';
+        }, 10);
+      }
+
+      showError(message) {
+        const factsContainer = document.getElementById('facts');
+        factsContainer.innerHTML = `
+          <p class="fact" style="border-left-color: #d32f2f; background: rgba(211, 47, 47, 0.1);">
+            ${message}
+          </p>
+        `;
+      }
+    }
+
+    // Initialize app
+    let sardonicApp;
+    document.addEventListener('DOMContentLoaded', () => {
+      sardonicApp = new SardonicCavemanApp();
+    });
+
+    // Global function for backward compatibility
+    function fetchSardonicWisdom() {
+      if (sardonicApp) {
+        sardonicApp.fetchSardonicWisdom();
+      }
+    }
+
+    // Console messages
+    console.log('🔥 Fire Caveman Frontend Ready!');
+    console.log('💡 Press SPACE to fetch new wisdom');
+    console.log('😏 Fire ready to be sarcastic about history');
+    console.log('🔥 Beautiful campfire animations preserved!');
+  </script>
+
+</body>
+</html>
